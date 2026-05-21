@@ -18,7 +18,7 @@ document.querySelectorAll(".fade-in").forEach((el)=>{
     observer.observe(el);
 });
 
-/* PREMIUM NAVBAR */
+/* NAVBAR EFFECT */
 
 window.addEventListener("scroll",()=>{
 
@@ -37,7 +37,7 @@ window.addEventListener("scroll",()=>{
 
 });
 
-/* PREMIUM TYPING EFFECT */
+/* TYPING EFFECT */
 
 const words = [
     "Trading Operations Specialist",
@@ -91,76 +91,3 @@ function typeEffect(){
 }
 
 typeEffect();
-
-/* CARD 3D EFFECT */
-
-document.querySelectorAll(
-    ".project-card,.cert-card,.skill-item"
-).forEach((card)=>{
-
-    card.addEventListener("mousemove",(e)=>{
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / 20);
-        const rotateY = ((centerX - x) / 20);
-
-        card.style.transform =
-        `perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-10px)`;
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform =
-        "perspective(1000px) rotateX(0) rotateY(0)";
-    });
-
-});
-
-/* MOUSE GLOW EFFECT */
-
-const glow = document.createElement("div");
-
-glow.style.position = "fixed";
-glow.style.width = "300px";
-glow.style.height = "300px";
-glow.style.borderRadius = "50%";
-glow.style.pointerEvents = "none";
-glow.style.background =
-"radial-gradient(circle, rgba(0,212,255,0.15), transparent 70%)";
-
-glow.style.zIndex = "0";
-glow.style.transform = "translate(-50%, -50%)";
-
-document.body.appendChild(glow);
-
-document.addEventListener("mousemove",(e)=>{
-
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-
-});
-
-/* FLOATING HERO EFFECT */
-
-const hero = document.querySelector(".hero-content");
-
-window.addEventListener("mousemove",(e)=>{
-
-    const x = (window.innerWidth / 2 - e.pageX) / 40;
-    const y = (window.innerHeight / 2 - e.pageY) / 40;
-
-    hero.style.transform =
-    `translateX(${x}px) translateY(${y}px)`;
-
-});
