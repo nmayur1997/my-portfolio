@@ -101,54 +101,112 @@ body::after{
 }
 .nav-menu a:hover{color:#00d4ff;}
 
-/* ── HERO — centered resume style ── */
-.hero{
-  min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  padding-top:calc(44px + 60px + 40px);
-  padding-bottom:60px;
-  text-align:center;
+/* ── ULTRA-PREMIUM CENTERED HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: calc(44px + 80px);
+  padding-bottom: 60px;
+  text-align: center;
+  position: relative;
 }
-.hero-center{
-  max-width:800px;
-  width:90%;
-  display:flex;flex-direction:column;align-items:center;
+.hero-container {
+  max-width: 900px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.hero-badge{
-  display:inline-block;
-  padding:8px 20px;border-radius:40px;
-  background:rgba(0,212,255,0.08);
-  border:1px solid rgba(0,212,255,0.2);
-  color:#00d4ff;
-  font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
-  margin-bottom:28px;
+
+/* Active Workplace Pulse Badge */
+.current-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 40px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  color: #a5f3fc;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.05);
 }
-.hero-name{
-  font-size:clamp(3rem,8vw,6rem);
-  font-weight:800;
-  letter-spacing:-0.02em;
-  line-height:1.05;
-  margin-bottom:18px;
-  background:linear-gradient(135deg,#ffffff 0%,#00d4ff 50%,#7c3aed 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #00ff95;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(0, 255, 149, 0.7);
+  animation: pulse 1.6s infinite;
 }
-.hero-subtitle{
-  font-size:1.15rem;
-  color:#00d4ff;
-  min-height:1.8em;
-  margin-bottom:20px;
-  letter-spacing:0.02em;
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 149, 0.5); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 149, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 149, 0); }
 }
-.hero-description{
-  color:#94a3b8;line-height:1.8;
-  font-size:1rem;margin-bottom:36px;
-  max-width:580px;
+
+/* Main Name Typography Header */
+.hero-name {
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #ffffff 20%, #00d4ff 60%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
 }
-.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+
+/* Secondary Sub-Headline Line */
+.hero-role-title {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: #e2e8f0;
+  font-weight: 500;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.hero-role-title .text-divider {
+  color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px;
+}
+.hero-role-title .date-highlight {
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+/* Typing Target Area Spacing */
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #00d4ff;
+  min-height: 1.8em;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.hero-description {
+  color: #94a3b8;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 36px;
+  max-width: 620px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 52px;
+}
 
 /* ── BUTTONS ── */
 .btn{
-  display:inline-flex;align-items:center;gap:8px;
+  display: inline-flex;align-items:center;gap:8px;
   padding:13px 28px;border-radius:50px;
   text-decoration:none;font-weight:600;font-size:14px;
   transition:all 0.3s;cursor:pointer;
@@ -167,7 +225,6 @@ body::after{
 /* ── STATS ROW ── */
 .stats-row{
   display:flex;align-items:center;
-  margin-top:52px;
   padding:32px 40px;
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.07);
@@ -334,12 +391,13 @@ body::after{
   border-top:1px solid rgba(255,255,255,0.05);
 }
 
-/* ── FADE IN ── */
+/* ── FADE IN AMNIMATIONS ── */
 .fade-in{opacity:0;transform:translateY(32px);transition:all 0.8s ease;}
 .fade-in.show{opacity:1;transform:translateY(0);}
 
-/* ── MOBILE ── */
+/* ── MOBILE RESPONSIVENESS ── */
 @media(max-width:768px){
+  .hero {padding-top: calc(44px + 60px + 20px);}
   .stats-row{flex-wrap:wrap;padding:24px 20px;gap:16px;}
   .stat-divider{display:none;}
   .stat-item{min-width:40%;}
