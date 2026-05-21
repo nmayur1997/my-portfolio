@@ -19,19 +19,41 @@ rel="stylesheet"
 
 <body>
 
-<!-- MARKET TICKER -->
+<!-- LIVE MARKET TICKER -->
 
-<div class="ticker-wrap">
+<div class="tradingview-widget-container ticker-widget">
 
-<div class="ticker">
+<div class="tradingview-widget-container__widget"></div>
 
-<span>NIFTY +0.84%</span>
-<span>BANKNIFTY +1.22%</span>
-<span>MCX GOLD -0.12%</span>
-<span>CRUDE OIL +2.14%</span>
-<span>FINNIFTY +0.61%</span>
+<script
+type="text/javascript"
+src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+async>
 
-</div>
+{
+  "symbols": [
+    {
+      "proName": "NSE:NIFTY",
+      "title": "NIFTY"
+    },
+    {
+      "proName": "MCX:GOLD1!",
+      "title": "MCX GOLD"
+    },
+    {
+      "proName": "MCX:SILVER1!",
+      "title": "MCX SILVER"
+    }
+  ],
+
+  "showSymbolLogo": true,
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "colorTheme": "dark",
+  "locale": "en"
+}
+
+</script>
 
 </div>
 
@@ -62,16 +84,16 @@ Mayur Nayak
 
 <section class="hero">
 
-<div class="hero-left">
+<div class="hero-left fade-in">
 
 <div class="hero-badge">
-Trading Operations Specialist
+TRADING OPERATIONS • RISK MANAGEMENT
 </div>
 
 <h1>
 Modern Trading <br>
 Operations & <br>
-Risk Management
+Market Technology
 </h1>
 
 <p class="hero-subtitle">
@@ -80,9 +102,9 @@ NSE • BSE • MCX • HFT Systems
 
 <p class="hero-description">
 
-Professional focused on derivatives markets,
-risk management, trading operations,
-automation, and fintech systems.
+Professional portfolio focused on
+trading operations, risk management,
+market infrastructure, and automation.
 
 </p>
 
@@ -97,8 +119,6 @@ Contact Me
 </a>
 
 </div>
-
-<!-- STATS -->
 
 <div class="stats-grid">
 
@@ -119,32 +139,32 @@ Contact Me
 
 <div class="stat-card">
 <h2>24/7</h2>
-<p>Market Operations</p>
+<p>Operations</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- HERO RIGHT -->
-
-<div class="hero-right">
+<div class="hero-right fade-in">
 
 <div class="dashboard-card large-card">
 
-<div class="chart-lines"></div>
+<div class="dashboard-glow"></div>
 
 <div class="dashboard-content">
 
-<h3>Trading Dashboard</h3>
+<h3>Market Dashboard</h3>
 
-<p>Risk Monitoring • HFT • Position Tracking</p>
+<p>
+Risk Monitoring • Trading Systems • HFT
+</p>
 
 </div>
 
 </div>
 
-<div class="small-cards">
+<div class="small-dashboard">
 
 <div class="dashboard-card">
 
@@ -152,7 +172,7 @@ Contact Me
 
 <h4>Markets</h4>
 
-<p>NSE • BSE • MCX</p>
+<p>NSE • MCX</p>
 
 </div>
 
@@ -160,9 +180,9 @@ Contact Me
 
 <i class="fas fa-shield-alt"></i>
 
-<h4>Risk Control</h4>
+<h4>Risk</h4>
 
-<p>Real-time Monitoring</p>
+<p>Real-Time Control</p>
 
 </div>
 
@@ -176,49 +196,48 @@ Contact Me
 
 <section class="section" id="about">
 
-<h2 class="section-title">
+<h2 class="section-title fade-in">
 About Me
 </h2>
 
 <div class="about-grid">
 
-<div class="glass-card">
+<div class="glass-card fade-in">
 
 <h3>Trading Operations</h3>
 
 <p>
 
 Experienced in derivatives operations,
-risk management, HFT support,
-NEAT monitoring, CTCL management,
-and exchange operations.
+risk management, CTCL management,
+NEAT monitoring, and exchange systems.
 
 </p>
 
 </div>
 
-<div class="glass-card">
+<div class="glass-card fade-in">
 
-<h3>Technology & Automation</h3>
+<h3>Automation & Technology</h3>
 
 <p>
 
 Skilled in Python automation,
-Excel operations, Linux systems,
-and financial market technology.
+Linux systems, Excel operations,
+and fintech workflows.
 
 </p>
 
 </div>
 
-<div class="glass-card">
+<div class="glass-card fade-in">
 
 <h3>Financial Markets</h3>
 
 <p>
 
-Expertise in options strategies,
-market risk, operations workflow,
+Focused on options strategies,
+market operations,
 and institutional trading support.
 
 </p>
@@ -233,13 +252,13 @@ and institutional trading support.
 
 <section class="section" id="experience">
 
-<h2 class="section-title">
+<h2 class="section-title fade-in">
 Professional Experience
 </h2>
 
 <div class="timeline">
 
-<div class="timeline-card">
+<div class="timeline-card fade-in">
 
 <div class="timeline-date">
 2025 - Present
@@ -251,7 +270,7 @@ Professional Experience
 
 </div>
 
-<div class="timeline-card">
+<div class="timeline-card fade-in">
 
 <div class="timeline-date">
 2024 - Present
@@ -263,7 +282,7 @@ Professional Experience
 
 </div>
 
-<div class="timeline-card">
+<div class="timeline-card fade-in">
 
 <div class="timeline-date">
 2021 - 2024
@@ -283,13 +302,13 @@ Professional Experience
 
 <section class="section" id="projects">
 
-<h2 class="section-title">
+<h2 class="section-title fade-in">
 Featured Projects
 </h2>
 
 <div class="projects-grid">
 
-<div class="project-card">
+<div class="project-card fade-in">
 
 <div class="project-top">
 
@@ -303,8 +322,8 @@ Featured Projects
 
 <p>
 
-Exchange compliant automation
-tool for MCX operations.
+Automation tool for exchange-compliant
+file generation and operations.
 
 </p>
 
@@ -312,7 +331,7 @@ tool for MCX operations.
 
 </div>
 
-<div class="project-card">
+<div class="project-card fade-in">
 
 <div class="project-top">
 
@@ -335,7 +354,7 @@ and automation systems.
 
 </div>
 
-<div class="project-card">
+<div class="project-card fade-in">
 
 <div class="project-top">
 
@@ -345,12 +364,12 @@ and automation systems.
 
 <div class="project-body">
 
-<h3>Risk Management</h3>
+<h3>Risk Monitoring</h3>
 
 <p>
 
-Position monitoring and
-market risk control systems.
+Real-time position and market
+risk control systems.
 
 </p>
 
@@ -366,20 +385,26 @@ market risk control systems.
 
 <section class="section" id="contact">
 
-<h2 class="section-title">
+<h2 class="section-title fade-in">
 Let's Connect
 </h2>
 
-<div class="contact-box">
+<div class="contact-box fade-in">
 
 <p>
+
 Available for trading operations,
-market technology, and fintech opportunities.
+market infrastructure,
+and fintech opportunities.
+
 </p>
 
-<a href="mailto:nmayur488@gmail.com"
+<a
+href="mailto:nmayur488@gmail.com"
 class="btn btn-primary">
+
 Email Me
+
 </a>
 
 </div>
