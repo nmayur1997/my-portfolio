@@ -20,6 +20,7 @@ let wi = 0, ci = 0, deleting = false;
 const el = document.getElementById("typing-target");
 
 function type() {
+  if (!el) return;
   const word = words[wi];
   el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
   let speed = deleting ? 40 : 85;
@@ -48,16 +49,19 @@ async function fetchQuote(symbol) {
 }
 
 async function loadMarkets() {
-
   /* NIFTY */
   try {
     const q = await fetchQuote("^NSEI");
     const chg = q.price - q.prev;
     const pct = (chg / q.prev) * 100;
-    document.getElementById("nifty-price").innerHTML =
-      q.price.toLocaleString("en-IN", { maximumFractionDigits: 1 }) + " " + fmtChange(chg, pct);
+    const niftyEl = document.getElementById("nifty-price");
+    if (niftyEl) {
+      niftyEl.innerHTML =
+        q.price.toLocaleString("en-IN", { maximumFractionDigits: 1 }) + " " + fmtChange(chg, pct);
+    }
   } catch(e) {
-    document.getElementById("nifty-price").textContent = "N/A";
+    const niftyEl = document.getElementById("nifty-price");
+    if (niftyEl) niftyEl.textContent = "N/A";
   }
 
   /* GOLD — show raw USD/oz (COMEX) */
@@ -65,10 +69,14 @@ async function loadMarkets() {
     const q = await fetchQuote("GC=F");
     const chg = q.price - q.prev;
     const pct = (chg / q.prev) * 100;
-    document.getElementById("gold-price").innerHTML =
-      "$" + q.price.toLocaleString("en-US", { maximumFractionDigits: 1 }) + " " + fmtChange(chg, pct);
+    const goldEl = document.getElementById("gold-price");
+    if (goldEl) {
+      goldEl.innerHTML =
+        "$" + q.price.toLocaleString("en-US", { maximumFractionDigits: 1 }) + " " + fmtChange(chg, pct);
+    }
   } catch(e) {
-    document.getElementById("gold-price").textContent = "N/A";
+    const goldEl = document.getElementById("gold-price");
+    if (goldEl) goldEl.textContent = "N/A";
   }
 
   /* SILVER — show raw USD/oz (COMEX) */
@@ -76,18 +84,22 @@ async function loadMarkets() {
     const q = await fetchQuote("SI=F");
     const chg = q.price - q.prev;
     const pct = (chg / q.prev) * 100;
-    document.getElementById("silver-price").innerHTML =
-      "$" + q.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) + " " + fmtChange(chg, pct);
+    const silverEl = document.getElementById("silver-price");
+    if (silverEl) {
+      silverEl.innerHTML =
+        "$" + q.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) + " " + fmtChange(chg, pct);
+    }
   } catch(e) {
-    document.getElementById("silver-price").textContent = "N/A";
+    const silverEl = document.getElementById("silver-price");
+    if (silverEl) silverEl.textContent = "N/A";
   }
 }
 
 loadMarkets();
 setInterval(loadMarkets, 60000);
 
-/* ── CARD MOUSE-TRACKING GLOW (Idea 2) ── */
-document.querySelectorAll('.glass-card, .project-card, .cert-card').forEach(card => {
+/* ── CARD MOUSE-TRACKING GLOW ── */
+document.querySelectorAll('.glass-card, .project-card, .cert-card-container').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -97,7 +109,164 @@ document.querySelectorAll('.glass-card, .project-card, .cert-card').forEach(card
   });
 });
 
-/* ── TRADING GRID & CHART LINE CANVAS (Idea 3) ── */
+/* ── 3D PARALLAX TILT EFFECT ON CARDS (Idea 1) ── */
+if (window.matchMedia('(hover: hover)').matches) {
+  document.querySelectorAll('.glass-card, .project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const width = rect.width;
+      const height = rect.height;
+      
+      const normX = (x / width) - 0.5;
+      const normY = (y / height) - 0.5;
+      
+      const maxRotate = 12; // Sleek and controlled angle
+      const rotateX = -normY * maxRotate;
+      const rotateY = normX * maxRotate;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      card.style.boxShadow = `0 15px 35px rgba(0, 212, 255, 0.12)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      card.style.boxShadow = ``;
+    });
+  });
+}
+
+/* ── DYNAMIC LIQUID FLUID GLOWS WITH SPRING PHYSICS (Idea 3) ── */
+const glow1 = document.getElementById("glow-1");
+const glow2 = document.getElementById("glow-2");
+
+let targetMouse = { x: window.innerWidth / 4, y: window.innerHeight / 4 };
+let currentGlow1 = { x: -150, y: -150, vx: 0, vy: 0 };
+let currentGlow2 = { x: window.innerWidth + 150, y: window.innerHeight + 150, vx: 0, vy: 0 };
+
+const spring = 0.02;   // Spring force
+const damping = 0.88;   // Damping ratio
+
+window.addEventListener("mousemove", (e) => {
+  targetMouse.x = e.clientX;
+  targetMouse.y = e.clientY;
+});
+
+function animateGlows() {
+  // Glow 1 tracks mouse coordinates
+  let ax1 = (targetMouse.x - currentGlow1.x) * spring;
+  let ay1 = (targetMouse.y - currentGlow1.y) * spring;
+  currentGlow1.vx = (currentGlow1.vx + ax1) * damping;
+  currentGlow1.vy = (currentGlow1.vy + ay1) * damping;
+  currentGlow1.x += currentGlow1.vx;
+  currentGlow1.y += currentGlow1.vy;
+
+  // Glow 2 tracks diagonally opposite mouse coordinate
+  let targetX2 = window.innerWidth - targetMouse.x;
+  let targetY2 = window.innerHeight - targetMouse.y;
+  let ax2 = (targetX2 - currentGlow2.x) * spring;
+  let ay2 = (targetY2 - currentGlow2.y) * spring;
+  currentGlow2.vx = (currentGlow2.vx + ax2) * damping;
+  currentGlow2.vy = (currentGlow2.vy + ay2) * damping;
+  currentGlow2.x += currentGlow2.vx;
+  currentGlow2.y += currentGlow2.vy;
+
+  if (glow1) {
+    // 300px offset is half of 600px width/height of the glow
+    glow1.style.transform = `translate3d(${currentGlow1.x - 300}px, ${currentGlow1.y - 300}px, 0)`;
+  }
+  if (glow2) {
+    glow2.style.transform = `translate3d(${currentGlow2.x - 300}px, ${currentGlow2.y - 300}px, 0)`;
+  }
+
+  requestAnimationFrame(animateGlows);
+}
+animateGlows();
+
+/* ── SEQUENTIAL TEXT SPLIT-REVEAL FOR SECTION TITLES (Idea 4) ── */
+document.querySelectorAll(".section-title").forEach(title => {
+  const text = title.textContent.trim();
+  title.textContent = "";
+  
+  const words = text.split(" ");
+  words.forEach((word, wordIdx) => {
+    const wordSpan = document.createElement("span");
+    wordSpan.style.display = "inline-block";
+    wordSpan.style.whiteSpace = "nowrap";
+    
+    Array.from(word).forEach(char => {
+      const charSpan = document.createElement("span");
+      charSpan.className = "reveal-char";
+      charSpan.textContent = char;
+      wordSpan.appendChild(charSpan);
+    });
+    
+    title.appendChild(wordSpan);
+    
+    if (wordIdx < words.length - 1) {
+      const spaceSpan = document.createElement("span");
+      spaceSpan.innerHTML = "&nbsp;";
+      spaceSpan.style.display = "inline-block";
+      title.appendChild(spaceSpan);
+    }
+  });
+  
+  // Set incremental delay on characters
+  title.querySelectorAll(".reveal-char").forEach((charSpan, index) => {
+    charSpan.style.transitionDelay = `${index * 0.035}s`;
+  });
+});
+
+/* ── NISM CERTIFICATIONS VIEW CONTROLS & FLIP (Idea 5) ── */
+const viewGridBtn = document.getElementById("view-grid");
+const viewCarouselBtn = document.getElementById("view-carousel");
+const carouselNav = document.getElementById("carousel-nav");
+const certGrid = document.getElementById("cert-grid");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+
+if (viewGridBtn && viewCarouselBtn && certGrid && carouselNav) {
+  viewGridBtn.addEventListener("click", () => {
+    viewGridBtn.classList.add("active");
+    viewCarouselBtn.classList.remove("active");
+    certGrid.classList.remove("carousel-mode");
+    carouselNav.style.display = "none";
+  });
+
+  viewCarouselBtn.addEventListener("click", () => {
+    viewCarouselBtn.classList.add("active");
+    viewGridBtn.classList.remove("active");
+    certGrid.classList.add("carousel-mode");
+    carouselNav.style.display = "flex";
+  });
+}
+
+if (certGrid && prevBtn && nextBtn) {
+  prevBtn.addEventListener("click", () => {
+    certGrid.scrollBy({ left: -340, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    certGrid.scrollBy({ left: 340, behavior: "smooth" });
+  });
+}
+
+// 3D Flip toggle for mobile/touch screen support
+document.querySelectorAll(".cert-card-container").forEach(cardContainer => {
+  cardContainer.addEventListener("click", () => {
+    cardContainer.classList.toggle("active");
+    // Close other flipped cards
+    document.querySelectorAll(".cert-card-container").forEach(otherCard => {
+      if (otherCard !== cardContainer) {
+        otherCard.classList.remove("active");
+      }
+    });
+  });
+});
+
+/* ── TRADING GRID & CHART LINE CANVAS (Idea 3 - Grid Canvas) ── */
 const canvas = document.getElementById("trading-canvas");
 if (canvas) {
   const ctx = canvas.getContext("2d");
