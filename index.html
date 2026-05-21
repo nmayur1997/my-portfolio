@@ -1,410 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mayur Nayak | Trading Operations</title>
-
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-rel="stylesheet"
-/>
-
+<title>Mayur Nayak | Trading Operations Professional</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
 <!-- TOP MARKET TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-label">US MARKETS</div>
+  <div class="ticker-items">
 
-<div class="ticker-custom">
+    <div class="ticker-item">
+      <span class="ticker-sym">NIFTY</span>
+      <span class="ticker-val" id="nifty-price">—</span>
+    </div>
 
-<div class="ticker-item">
-<span>NIFTY</span>
-<div id="nifty-price">Loading...</div>
-</div>
+    <div class="ticker-item">
+      <span class="ticker-sym">GOLD</span>
+      <span class="ticker-val" id="gold-price">—</span>
+      <span class="ticker-unit">USD/oz</span>
+    </div>
 
-<div class="ticker-item">
-<span>GOLD</span>
-<div id="gold-price">Loading...</div>
-</div>
+    <div class="ticker-item">
+      <span class="ticker-sym">SILVER</span>
+      <span class="ticker-val" id="silver-price">—</span>
+      <span class="ticker-unit">USD/oz</span>
+    </div>
 
-<div class="ticker-item">
-<span>SILVER</span>
-<div id="silver-price">Loading...</div>
-</div>
-
+  </div>
+  <div class="ticker-note">* Gold &amp; Silver sourced from US COMEX futures (not MCX)</div>
 </div>
 
 <!-- NAVBAR -->
-
-<nav class="navbar">
-
-<div class="nav-container">
-
-<div class="logo">
-Mayur Nayak
-</div>
-
-<ul class="nav-menu">
-
-<li><a href="#about">About</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-</div>
-
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="logo">MN</div>
+    <ul class="nav-menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- HERO -->
-
+<!-- HERO — resume style, name centered -->
 <section class="hero">
+  <div class="hero-center fade-in">
 
-<div class="hero-left fade-in">
+    <div class="hero-badge">Trading Operations Professional</div>
 
-<div class="hero-badge">
-TRADING OPERATIONS • RISK MANAGEMENT
-</div>
+    <h1 class="hero-name">Mayur Nayak</h1>
 
-<h1>
-Modern Trading <br>
-Operations & <br>
-Market Technology
-</h1>
+    <p class="hero-subtitle" id="typing-target"></p>
 
-<p class="hero-subtitle">
-HFT Systems
-</p>
+    <p class="hero-description">
+      4+ years of experience in derivatives operations, risk management,
+      exchange systems, and trading automation across NSE, BSE &amp; MCX.
+    </p>
 
-<p class="hero-description">
+    <div class="hero-buttons">
+      <a href="#experience" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Experience</a>
+      <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+    </div>
 
-Professional portfolio focused on
-trading operations, risk management,
-market infrastructure, and automation.
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">4<span>+</span></div>
+        <div class="stat-lbl">Years Experience</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">7<span>+</span></div>
+        <div class="stat-lbl">NISM Certifications</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Exchanges</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-lbl">Operations</div>
+      </div>
+    </div>
 
-</p>
-
-<div class="hero-buttons">
-
-<a href="#projects" class="btn btn-primary">
-View Projects
-</a>
-
-<a href="#contact" class="btn btn-outline">
-Contact Me
-</a>
-
-</div>
-
-<div class="stats-grid">
-
-<div class="stat-card">
-<h2>4+</h2>
-<p>Years Experience</p>
-</div>
-
-<div class="stat-card">
-<h2>10+</h2>
-<p>Certifications</p>
-</div>
-
-<div class="stat-card">
-<h2>3</h2>
-<p>Exchanges</p>
-</div>
-
-<div class="stat-card">
-<h2>24/7</h2>
-<p>Operations</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-right fade-in">
-
-<div class="dashboard-card large-card">
-
-<div class="dashboard-glow"></div>
-
-<div class="dashboard-content">
-
-<h3>Market Dashboard</h3>
-
-<p>
-Risk Monitoring • Trading Systems • HFT
-</p>
-
-</div>
-
-</div>
-
-<div class="small-dashboard">
-
-<div class="dashboard-card">
-
-<i class="fas fa-chart-line"></i>
-
-<h4>Markets</h4>
-
-<p>NSE • MCX</p>
-
-</div>
-
-<div class="dashboard-card">
-
-<i class="fas fa-shield-alt"></i>
-
-<h4>Risk</h4>
-
-<p>Real-Time Control</p>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- ABOUT -->
-
 <section class="section" id="about">
+  <h2 class="section-title fade-in">About Me</h2>
+  <div class="about-grid">
 
-<h2 class="section-title fade-in">
-About Me
-</h2>
+    <div class="glass-card fade-in">
+      <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+      <h3>Trading Operations</h3>
+      <p>Experienced in derivatives operations, risk management, CTCL management, NEAT monitoring, and exchange systems across NSE and MCX.</p>
+    </div>
 
-<div class="about-grid">
+    <div class="glass-card fade-in">
+      <div class="card-icon"><i class="fas fa-terminal"></i></div>
+      <h3>Automation & Technology</h3>
+      <p>Skilled in Python automation, Linux systems, Excel-based operations, and fintech workflows for back-office and trading support.</p>
+    </div>
 
-<div class="glass-card fade-in">
+    <div class="glass-card fade-in">
+      <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+      <h3>Compliance & Risk</h3>
+      <p>Focused on AML/CFT compliance, options strategies, market operations, and institutional trading support with regulatory awareness.</p>
+    </div>
 
-<h3>Trading Operations</h3>
-
-<p>
-
-Experienced in derivatives operations,
-risk management, CTCL management,
-NEAT monitoring, and exchange systems.
-
-</p>
-
-</div>
-
-<div class="glass-card fade-in">
-
-<h3>Automation & Technology</h3>
-
-<p>
-
-Skilled in Python automation,
-Linux systems, Excel operations,
-and fintech workflows.
-
-</p>
-
-</div>
-
-<div class="glass-card fade-in">
-
-<h3>Financial Markets</h3>
-
-<p>
-
-Focused on options strategies,
-market operations,
-and institutional trading support.
-
-</p>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
-
 <section class="section" id="experience">
+  <h2 class="section-title fade-in">Professional Experience</h2>
+  <div class="timeline">
 
-<h2 class="section-title fade-in">
-Professional Experience
-</h2>
+    <div class="timeline-card fade-in">
+      <div class="tl-left">
+        <div class="tl-date">2025 — Present</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-company">MCX Exchange</div>
+        <h3>Customer Support &amp; Quality</h3>
+        <p>Exchange-level support operations and quality assurance for commodity derivatives trading.</p>
+      </div>
+    </div>
 
-<div class="timeline">
+    <div class="timeline-card fade-in">
+      <div class="tl-left">
+        <div class="tl-date">2024 — Present</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-company">NK Securities Research</div>
+        <h3>Back Office Associate</h3>
+        <p>Back-office operations, settlement, reconciliation, and trade support for a securities research firm.</p>
+      </div>
+    </div>
 
-<div class="timeline-card fade-in">
+    <div class="timeline-card fade-in">
+      <div class="tl-left">
+        <div class="tl-date">2021 — 2024</div>
+        <div class="tl-dot last"></div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-company">Divya Capital One Ltd</div>
+        <h3>NSE Derivative Analyst</h3>
+        <p>Derivative market analysis, CTCL management, risk monitoring, and NEAT system operations on NSE.</p>
+      </div>
+    </div>
 
-<div class="timeline-date">
-2025 - Present
-</div>
+  </div>
+</section>
 
-<h3>Customer Support & Quality</h3>
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+  <h2 class="section-title fade-in">NISM Certifications</h2>
+  <p class="section-sub fade-in">Certified by the National Institute of Securities Markets (SEBI)</p>
 
-<p>MCX Exchange</p>
+  <div class="cert-grid">
 
-</div>
+    <div class="cert-card fade-in">
+      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">NISM Series III-A</div>
+        <div class="cert-name">Securities Intermediaries Compliance (Non-Fund)</div>
+      </div>
+    </div>
 
-<div class="timeline-card fade-in">
+    <div class="cert-card fade-in">
+      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">NISM Series VII</div>
+        <div class="cert-name">Securities Operations and Risk Management</div>
+      </div>
+    </div>
 
-<div class="timeline-date">
-2024 - Present
-</div>
+    <div class="cert-card fade-in">
+      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">NISM Series VIII</div>
+        <div class="cert-name">Equity Derivatives</div>
+      </div>
+    </div>
 
-<h3>Back Office Associate</h3>
+    <div class="cert-card fade-in">
+      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">NISM Series XVI</div>
+        <div class="cert-name">Commodity Derivatives</div>
+      </div>
+    </div>
 
-<p>NK Securities Research</p>
+    <div class="cert-card fade-in">
+      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">NISM Series XXIV</div>
+        <div class="cert-name">AML and CFT Provisions in Securities Markets</div>
+      </div>
+    </div>
 
-</div>
+    <div class="cert-card fade-in">
+      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">NISM-IFSCA-01</div>
+        <div class="cert-name">Anti Money Laundering &amp; Counter Terrorist Financing in IFSC</div>
+      </div>
+    </div>
 
-<div class="timeline-card fade-in">
+    <div class="cert-card fade-in cert-highlight">
+      <div class="cert-badge"><i class="fas fa-star"></i></div>
+      <div class="cert-body">
+        <div class="cert-series">MCX Certified</div>
+        <div class="cert-name">MCX Certified Commodity Professional (MCCP)</div>
+      </div>
+    </div>
 
-<div class="timeline-date">
-2021 - 2024
-</div>
-
-<h3>NSE Derivative Analyst</h3>
-
-<p>Divya Capital One Ltd</p>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- PROJECTS -->
-
 <section class="section" id="projects">
+  <h2 class="section-title fade-in">Featured Projects</h2>
+  <div class="projects-grid">
 
-<h2 class="section-title fade-in">
-Featured Projects
-</h2>
+    <div class="project-card fade-in">
+      <div class="project-icon"><i class="fas fa-file-code"></i></div>
+      <h3>MCX File Generator</h3>
+      <p>Automation tool for exchange-compliant file generation and operations at MCX.</p>
+    </div>
 
-<div class="projects-grid">
+    <div class="project-card fade-in">
+      <div class="project-icon"><i class="fas fa-robot"></i></div>
+      <h3>HFT Automation</h3>
+      <p>High-frequency trading support and automation systems for back-office workflows.</p>
+    </div>
 
-<div class="project-card fade-in">
+    <div class="project-card fade-in">
+      <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+      <h3>Risk Monitoring</h3>
+      <p>Real-time position and market risk control systems for trading desks.</p>
+    </div>
 
-<div class="project-top">
-
-<i class="fas fa-chart-line"></i>
-
-</div>
-
-<div class="project-body">
-
-<h3>MCX File Generator</h3>
-
-<p>
-
-Automation tool for exchange-compliant
-file generation and operations.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="project-card fade-in">
-
-<div class="project-top">
-
-<i class="fas fa-robot"></i>
-
-</div>
-
-<div class="project-body">
-
-<h3>HFT Automation</h3>
-
-<p>
-
-High-frequency trading support
-and automation systems.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="project-card fade-in">
-
-<div class="project-top">
-
-<i class="fas fa-shield-alt"></i>
-
-</div>
-
-<div class="project-body">
-
-<h3>Risk Monitoring</h3>
-
-<p>
-
-Real-time position and market
-risk control systems.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- CONTACT -->
-
 <section class="section" id="contact">
-
-<h2 class="section-title fade-in">
-Let's Connect
-</h2>
-
-<div class="contact-box fade-in">
-
-<p>
-
-Available for trading operations,
-market infrastructure,
-and fintech opportunities.
-
-</p>
-
-<a
-href="mailto:nmayur488@gmail.com"
-class="btn btn-primary">
-
-Email Me
-
-</a>
-
-</div>
-
+  <h2 class="section-title fade-in">Get In Touch</h2>
+  <div class="contact-box fade-in">
+    <p>Open to trading operations, compliance, market infrastructure, and fintech roles.</p>
+    <a href="mailto:nmayur488@gmail.com" class="btn btn-primary">
+      <i class="fas fa-envelope"></i> nmayur488@gmail.com
+    </a>
+  </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer class="footer">
-
-<p>
-© 2025 Mayur Nayak • Trading Operations Portfolio
-</p>
-
+  <p>© 2025 Mayur Nayak &nbsp;•&nbsp; Trading Operations &amp; Compliance Professional</p>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
