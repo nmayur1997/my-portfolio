@@ -9,6 +9,8 @@
 </head>
 <body>
 <canvas id="trading-canvas"></canvas>
+<div class="fluid-glow" id="glow-1"></div>
+<div class="fluid-glow" id="glow-2"></div>
 
 <div class="ticker-bar">
   <div class="ticker-label">US MARKETS</div>
@@ -169,61 +171,128 @@
   <h2 class="section-title fade-in">NISM Certifications</h2>
   <p class="section-sub fade-in">Certified by the National Institute of Securities Markets (SEBI)</p>
 
-  <div class="cert-grid">
+  <div class="cert-controls fade-in">
+    <div class="view-toggle">
+      <button class="view-btn active" id="view-grid"><i class="fas fa-th"></i> Grid</button>
+      <button class="view-btn" id="view-carousel"><i class="fas fa-film"></i> Carousel</button>
+    </div>
+    <div class="carousel-nav" id="carousel-nav" style="display: none;">
+      <button class="nav-arrow" id="prev-btn"><i class="fas fa-arrow-left"></i></button>
+      <button class="nav-arrow" id="next-btn"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
 
-    <div class="cert-card fade-in">
-      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">NISM Series III-A</div>
-        <div class="cert-name">Securities Intermediaries Compliance (Non-Fund)</div>
+  <div class="cert-grid" id="cert-grid">
+
+    <div class="cert-card-container fade-in">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">NISM Series III-A</div>
+            <div class="cert-name">Securities Intermediaries Compliance (Non-Fund)</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">SEBI intermediary compliance regulations, regulatory oversight guidelines, code of conduct, and corporate disclosure standards.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cert-card fade-in">
-      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">NISM Series VII</div>
-        <div class="cert-name">Securities Operations and Risk Management</div>
+    <div class="cert-card-container fade-in">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">NISM Series VII</div>
+            <div class="cert-name">Securities Operations and Risk Management</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">Trade life cycle management, clearing and settlement procedures, investor protection systems, and operational risk mitigation.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cert-card fade-in">
-      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">NISM Series VIII</div>
-        <div class="cert-name">Equity Derivatives</div>
+    <div class="cert-card-container fade-in">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">NISM Series VIII</div>
+            <div class="cert-name">Equity Derivatives</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">Derivative market structures, options pricing, futures trading, institutional hedging strategies, and NSE market regulations.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cert-card fade-in">
-      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">NISM Series XVI</div>
-        <div class="cert-name">Commodity Derivatives</div>
+    <div class="cert-card-container fade-in">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">NISM Series XVI</div>
+            <div class="cert-name">Commodity Derivatives</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">Commodity spot and futures markets, MCX contract structures, physical delivery processes, and clearing operations.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cert-card fade-in">
-      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">NISM Series XXIV</div>
-        <div class="cert-name">AML and CFT Provisions in Securities Markets</div>
+    <div class="cert-card-container fade-in">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">NISM Series XXIV</div>
+            <div class="cert-name">AML and CFT Provisions in Securities Markets</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">Anti-Money Laundering frameworks, KYC processes, Suspicious Transaction Reports (STR), and regulatory compliance audits.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cert-card fade-in">
-      <div class="cert-badge"><i class="fas fa-certificate"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">NISM-IFSCA-01</div>
-        <div class="cert-name">Anti Money Laundering &amp; Counter Terrorist Financing in IFSC</div>
+    <div class="cert-card-container fade-in">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">NISM-IFSCA-01</div>
+            <div class="cert-name">Anti Money Laundering &amp; Counter Terrorist Financing in IFSC</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">AML/CFT regulations for International Financial Services Centres, global financial compliance, and GIFT City jurisdiction rules.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cert-card fade-in cert-highlight">
-      <div class="cert-badge"><i class="fas fa-star"></i></div>
-      <div class="cert-body">
-        <div class="cert-series">MCX Certified</div>
-        <div class="cert-name">MCX Certified Commodity Professional (MCCP)</div>
+    <div class="cert-card-container fade-in cert-highlight">
+      <div class="cert-card">
+        <div class="cert-card-front">
+          <div class="cert-badge"><i class="fas fa-star"></i></div>
+          <div class="cert-body">
+            <div class="cert-series">MCX Certified</div>
+            <div class="cert-name">MCX Certified Commodity Professional (MCCP)</div>
+          </div>
+        </div>
+        <div class="cert-card-back">
+          <div class="cert-back-title">Core Competency</div>
+          <p class="cert-back-desc">Advanced commodity risk analysis, derivatives hedging, exchange operation systems, and commodity product designs.</p>
+        </div>
       </div>
     </div>
 
@@ -268,6 +337,15 @@
 <footer class="footer">
   <p>© 2026 Mayur Nayak &nbsp;•&nbsp; Trading Operations &amp; Compliance Professional</p>
 </footer>
+
+<svg style="display: none;">
+  <defs>
+    <filter id="liquid-glow">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="55" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
 
 <script src="script.js"></script>
 </body>
