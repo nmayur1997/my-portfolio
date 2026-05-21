@@ -26,12 +26,12 @@ window.addEventListener("scroll",()=>{
 
     if(window.scrollY > 50){
 
-        navbar.style.background = "rgba(5,8,22,0.92)";
+        navbar.style.background = "rgba(2,6,23,0.92)";
         navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
     }
     else{
 
-        navbar.style.background = "rgba(5,8,22,0.75)";
+        navbar.style.background = "rgba(2,6,23,0.75)";
         navbar.style.boxShadow = "none";
     }
 
@@ -91,3 +91,17 @@ function typeEffect(){
 }
 
 typeEffect();
+
+/* MARKET DATA */
+
+document.getElementById("nifty-price")
+.innerHTML =
+"24,850 <span style='color:#00ff95'>+0.82%</span>";
+
+document.getElementById("gold-price")
+.innerHTML =
+"₹72,450 <span style='color:#00ff95'>+0.45%</span>";
+
+document.getElementById("silver-price")
+.innerHTML =
+"₹91,200 <span style='color:#ff4d6d'>-0.18%</span>";
